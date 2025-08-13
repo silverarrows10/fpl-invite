@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- What chat apps preview -->
   <title>FPL Daily — Special Report</title>
   <meta name="description" content="FPL Daily: Data-led coverage, captain picks, chip strategy and fixture analysis. Breaking reports every Gameweek.">
 
@@ -19,7 +17,6 @@
       --ink:#111;
       --paper:#f4f1e8;
       --rule:#00000022;
-      --accent:#b32317;
       --muted:#5a5a5a;
     }
     *{box-sizing:border-box}
@@ -53,86 +50,27 @@
     .deck{
       font-size:18px; color:#333; max-width:820px;
     }
-
-    /* Grid */
-    .grid{
-      display:grid; grid-template-columns:2fr 1fr; gap:18px; margin-top:14px;
-    }
-    @media (max-width:900px){ .grid{ grid-template-columns:1fr } }
-
-    /* Article card */
-    .card{ border-top:1px solid var(--rule); padding-top:12px }
-    h2{ font-size:22px; margin:8px 0 6px }
-    p{ margin:6px 0; font-size:16px }
-    .byline{ font-style:italic; color:var(--muted); font-size:14px }
-    .pull{
-      font-size:20px; font-style:italic; border-left:4px solid var(--accent);
-      padding:8px 12px; margin:10px 0; background:#fff9f7;
-    }
-
-    /* Ticker strip */
-    .ticker{
-      margin:18px 0 8px; font-size:14px; color:#333; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
-      padding:8px 0; display:flex; gap:18px; overflow-x:auto; white-space:nowrap;
-    }
-    .tick{ padding-right:18px; border-right:1px solid var(--rule) }
-
-    /* Footer */
-    footer{ margin-top:20px; border-top:3px double var(--ink); padding-top:10px; font-size:12px; color:var(--muted); text-align:center }
-
-    /* Small “plate line” date */
-    .plate{ font-variant-numeric: tabular-nums }
   </style>
 </head>
 <body>
   <div class="wrap">
     <!-- Masthead -->
     <div class="masthead">
-      <div class="name">FPL Daily</div>
+      <div class="name">FPL DAILY</div>
       <div class="subline">
         <span>Founded 1992 • Premier League Analysis</span>
-        <span class="plate">Tuesday Edition</span>
+        <span>Tuesday Edition</span>
         <span>Price Watch • Captain Picks • Chips</span>
       </div>
     </div>
 
-    <!-- Banner story -->
+    <!-- Banner -->
     <section class="banner">
       <div class="kicker">Special Report</div>
       <h1 class="headline">The only consistent thing about Sasha’s season is his optimism.</h1>
       <p class="deck">Analysts say belief is vital — but returns still come from fixtures, minutes and form. Our desk breaks down why confidence without data rarely tops the table.</p>
     </section>
-
-    <!-- Scrolling news strip -->
-    <div class="ticker">
-      <div class="tick"><strong>Captain Watch:</strong> Premium on form still edges high-variance punts.</div>
-      <div class="tick"><strong>Chip Desk:</strong> Save Bench Boost for major doubles; avoid early hits.</div>
-      <div class="tick"><strong>Price Moves:</strong> Late transfers reduce mid-week injury risk.</div>
-      <div class="tick"><strong>Fixtures:</strong> Target green swings across 3–5 GWs.</div>
-    </div>
-
-    <!-- Content grid -->
-    <section class="grid">
-      <article class="card">
-        <h2>Opinion — Why Swagger Won’t Beat xG</h2>
-        <div class="byline">By The Numbers Desk</div>
-        <p>Confidence sets the tone in the dressing room; in fantasy, expected goals and minutes set the score. Managers who anchor decisions to captaincy form, fixture difficulty and nailed minutes quietly outpace the pre-celebrations every year.</p>
-        <p class="pull">“If your plan fits in a victory speech but not a spreadsheet, it’s not a plan.”</p>
-        <p>Our model blend — recent non-pen xG/xA, set-piece share, opponent xGC (L6), and bookmaker anytime return odds — explains most week-to-week variance. Optimism is free; points are earned.</p>
-      </article>
-
-      <aside class="card">
-        <h2>Notebook — This Week’s Calls</h2>
-        <p><strong>Captaincy:</strong> Favour reliable starters on form. Punt only with home fixtures and rising xGI.</p>
-        <p><strong>Transfers:</strong> Roll when uncertain; hits need ≥4–6 point upside.</p>
-        <p><strong>Chips:</strong> Wildcard before fixture swings, FH in blanks, BB in big doubles.</p>
-        <p><strong>Price:</strong> Avoid early moves unless priced out.</p>
-      </aside>
-    </section>
-
-    <footer>
-      Unofficial publication • For entertainment only • © 2025 FPL Daily
-    </footer>
   </div>
 </body>
 </html>
+
