@@ -1,133 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic -->
+  <!-- Meta -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>FPL Tips & Strategy Hub</title>
   <meta name="description" content="Data-backed Fantasy Premier League tips: captaincy picks, chip strategy, fixture swings, price changes & more for the 2025 season.">
 
-  <!-- Open Graph (Teams/Slack/WhatsApp previews pull from these) -->
+  <!-- Open Graph (for Teams preview) -->
   <meta property="og:title" content="FPL Tips & Strategy Hub" />
   <meta property="og:description" content="Weekly captaincy picks, chip strategy guides, fixture swing alerts, and price-change trackers." />
   <meta property="og:image" content="https://resources.premierleague.com/premierleague/photo/2021/08/06/PL-logo.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fantasy.premierleague.com/" />
 
-  <!-- Favicons (optional) -->
+  <!-- Favicon -->
   <link rel="icon" href="https://resources.premierleague.com/premierleague/photo/2021/08/06/PL-logo.png" />
 
   <style>
     :root{
-      --bg:#0a0f1f;
-      --card:#11172c;
-      --muted:#99a2b3;
-      --text:#e9edf5;
-      --accent:#00ff85;
-      --accent-2:#6cf0ff;
-      --border:rgba(255,255,255,.08);
+      --pl-purple:#37003C;
+      --pl-purple-2:#2a0030;
+      --pl-green:#00ff85;
+      --ink:#0b1020;
+      --muted:#aab0bf;
+      --card:#121427;
+      --border:rgba(255,255,255,.10);
+      --text:#eef2fb;
+      --text-dim:#cfd5e6;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0a0f1f, #0c1227 40%, #0a0f1f);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b1020 0%, #0b1020 30%, #121427 100%);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Inter,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:1040px;margin:0 auto;padding:28px 20px 64px}
-    header{display:flex;gap:14px;align-items:center;margin-bottom:26px}
-    header img{width:40px;height:40px;border-radius:8px}
-    header .title{font-weight:700;font-size:20px;letter-spacing:.2px}
-    header .sub{color:var(--muted);font-size:13px}
-    nav{display:flex;gap:14px;margin-left:auto;flex-wrap:wrap}
-    nav a{padding:8px 12px;border:1px solid var(--border);border-radius:10px;color:var(--muted);font-size:13px}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:stretch}
-    @media (max-width:860px){.hero{grid-template-columns:1fr}}
-    .card{background:linear-gradient(180deg,#121a33,#0f1530);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 8px 30px rgba(0,0,0,.25)}
-    .card h2{margin:0 0 10px;font-size:18px}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 64px}
+
+    /* Header */
+    header{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:44px;height:44px;object-fit:contain;background:#fff;border-radius:10px;padding:6px}
+    .brand .title{font-weight:800;letter-spacing:.2px}
+    .brand .sub{color:var(--muted);font-size:13px;margin-top:2px}
+    nav{display:flex;gap:10px;margin-left:auto;flex-wrap:wrap}
+    nav a{padding:8px 12px;border:1px solid var(--border);border-radius:10px;color:var(--text-dim);font-size:13px}
+    nav a:hover{border-color:#ffffff30}
+
+    /* Hero */
+    .hero{border-radius:18px;overflow:hidden;margin-bottom:18px;border:1px solid var(--border)}
+    .hero-top{background:linear-gradient(135deg,var(--pl-purple),#5a0063);padding:26px;display:flex;gap:16px;align-items:center}
+    .hero-top .flag{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--pl-green),#6cf0ff);display:grid;place-items:center;color:#0b1020;font-weight:900}
+    .hero-top h1{margin:0;font-size:22px}
+    .hero-top p{margin:.35rem 0 0;color:#f2f6ffcc}
+    .hero-bottom{background:linear-gradient(180deg,#151830,#101328);padding:14px;display:flex;gap:14px;flex-wrap:wrap}
+    .chip{display:flex;align-items:center;gap:8px;background:#ffffff07;border:1px solid var(--border);border-radius:999px;padding:6px 10px;font-size:12px;color:var(--text-dim)}
+    .dot{width:6px;height:6px;border-radius:999px;background:var(--pl-green)}
+
+    /* Grid */
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+
+    /* Cards */
+    .card{background:linear-gradient(180deg,#151a36,#12162f);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 10px 28px rgba(0,0,0,.28)}
     .muted{color:var(--muted)}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(108,240,255,.12);border:1px solid rgba(108,240,255,.25);font-size:12px;color:#c9f8ff}
-    .feature{display:flex;gap:16px;align-items:flex-start}
-    .feature .badge{min-width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,#00ff85, #6cf0ff);color:#051018;font-weight:800}
-    .headline{font-size:22px;margin:8px 0 6px}
-    .caption{font-size:13px;color:var(--muted)}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
-    @media (max-width:860px){.grid{grid-template-columns:1fr}}
-    .item h3{margin:.25rem 0;font-size:15px}
-    .item p{margin:0;color:var(--muted);font-size:13px}
-    footer{margin-top:36px;color:var(--muted);font-size:12px;text-align:center}
     .divider{height:1px;background:var(--border);margin:14px 0}
-    .kpi{display:flex;gap:18px;margin-top:8px;flex-wrap:wrap}
-    .k{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
-    .k .v{font-weight:700}
+
+    /* Featured Tip */
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:#00ff8520;border:1px solid #00ff8550;color:#b7ffe0;font-size:12px}
+    .feature{display:flex;gap:16px;align-items:flex-start;margin-top:12px}
+    .badge{min-width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--pl-green),#6cf0ff);color:#0b1020;font-weight:900}
+
+    .headline{font-size:22px;margin:6px 0 6px}
+    .caption{font-size:13px;color:var(--text-dim)}
+
+    /* KPIs */
+    .kpi{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+    .k{background:#ffffff07;border:1px solid var(--border);border-radius:12px;padding:10px 12px;min-width:160px}
+    .k .kv{font-size:13px;color:var(--text-dim)}
+    .k .kn{font-weight:800}
+
+    /* Sidebar list */
+    .item h3{margin:.25rem 0;font-size:15px}
+    .item p{margin:0;color:var(--text-dim);font-size:13px}
+
+    /* Footer */
+    footer{margin-top:28px;color:var(--muted);font-size:12px;text-align:center}
   </style>
 </head>
 <body>
   <div class="wrap">
+    <!-- HEADER -->
     <header>
-      <img alt="FPL" src="https://resources.premierleague.com/premierleague/photo/2021/08/06/PL-logo.png" />
-      <div>
-        <div class="title">FPL Tips & Strategy Hub</div>
-        <div class="sub">Captaincy • Chips • Fixtures • Price Changes</div>
+      <div class="brand">
+        <!-- Crisp SVG logo from Wikipedia (display only). If it ever breaks, save a PNG to your repo and use ./pl-logo.png -->
+        <img alt="Premier League" src="https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg" />
+        <div>
+          <div class="title">FPL Tips & Strategy Hub</div>
+          <div class="sub">Captaincy • Chips • Fixtures • Price Changes</div>
+        </div>
       </div>
       <nav>
         <a href="#">Captain Picks</a>
-        <a href="#">Chip Strategy</a>
+        <a href="#">Chip Planner</a>
         <a href="#">Fixture Swings</a>
         <a href="#">Price Tracker</a>
       </nav>
     </header>
 
+    <!-- HERO -->
     <section class="hero">
-      <!-- Featured Tip card -->
+      <div class="hero-top">
+        <div class="flag">FPL</div>
+        <div>
+          <h1>Weekly Insights & Pro Guidance</h1>
+          <p>Model-backed notes for smart transfers and captaincy — updated every Friday.</p>
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <div class="chip"><span class="dot"></span> Captaincy Radar</div>
+        <div class="chip"><span class="dot"></span> Chip Strategy</div>
+        <div class="chip"><span class="dot"></span> Fixture Difficulty</div>
+        <div class="chip"><span class="dot"></span> Price Change Watch</div>
+      </div>
+    </section>
+
+    <!-- MAIN GRID -->
+    <section class="grid">
+      <!-- Featured Tip -->
       <div class="card">
         <span class="pill">Featured Tip</span>
-        <div class="feature" style="margin-top:12px;">
+        <div class="feature">
           <div class="badge">#1</div>
           <div>
             <div class="headline">Pro Tip #1: The only consistent thing about Sasha’s season is his optimism.</div>
-            <div class="caption">Model note: historical captaincy success and transfer timing suggest confidence alone isn’t a strategy.</div>
+            <div class="caption">Model note: captaincy form, fixture quality and transfer timing beat confidence every time.</div>
+
             <div class="kpi">
-              <div class="k"><div class="v">Captaincy Hit Rate</div><div class="muted">—%</div></div>
-              <div class="k"><div class="v">Chips Remaining</div><div class="muted">All (unused)</div></div>
-              <div class="k"><div class="v">Wildcard Timing</div><div class="muted">“Soon™”</div></div>
+              <div class="k">
+                <div class="kv">Captaincy Hit Rate</div>
+                <div class="kn">—%</div>
+              </div>
+              <div class="k">
+                <div class="kv">Chips Remaining</div>
+                <div class="kn">All (unused)</div>
+              </div>
+              <div class="k">
+                <div class="kv">Wildcard Timing</div>
+                <div class="kn">“Soon™”</div>
+              </div>
             </div>
+
+            <div class="divider"></div>
+            <p class="muted">Tip engine combines recent xG/xA, set-piece share, opponent xGC (L6), and bookie anytime-return odds.</p>
           </div>
         </div>
-        <div class="divider"></div>
-        <p class="muted">Weekly insights update every Friday 12:00 UTC. Data sources: live ownership trends, bookie odds, and fixture difficulty ratings.</p>
       </div>
 
-      <!-- Sidebar quick picks -->
+      <!-- Sidebar -->
       <aside class="card">
-        <h2>This Week’s Shortlist</h2>
+        <h2 style="margin:0 0 10px;">This Week’s Shortlist</h2>
         <div class="item">
-          <h3>Captaincy Radar</h3>
-          <p class="muted">Safe: Consistent premium. Punt: in-form differential with home fixture.</p>
+          <h3>Captain Picks</h3>
+          <p>Safe: reliable premium on form. Punt: in-form differential, home fixture, good xGI trend.</p>
         </div>
         <div class="divider"></div>
         <div class="item">
           <h3>Chip Watch</h3>
-          <p class="muted">Save chips until double/triple GWs. Bench Boost only when 14–15 starters have minutes.</p>
+          <p>Save chips for doubles/blanks. Bench Boost only when 14–15 starters have minutes.</p>
         </div>
         <div class="divider"></div>
         <div class="item">
           <h3>Fixture Swing</h3>
-          <p class="muted">Monitor teams turning from red→green in the next 3–5 weeks for value transfers.</p>
+          <p>Target teams flipping red→green across the next 3–5 GWs for value transfers.</p>
         </div>
       </aside>
     </section>
 
-    <!-- Extra cards to look legit -->
-    <section class="grid">
+    <!-- Bottom cards to sell the vibe -->
+    <section class="grid" style="margin-top:18px;">
       <div class="card">
-        <h2>Captain Picks – Methodology</h2>
-        <p class="muted">Combines recent xG/xA, set-piece share, bookie anytime-return odds, and opponent xGC conceded last 6.</p>
+        <h2 style="margin:0 0 8px;">Captaincy – Method</h2>
+        <p class="muted">Weighted blend of non-pen xG/xA (L4 & L8), set-piece share, rest/rotation risk, opponent xGC, and bookmaker odds.</p>
       </div>
       <div class="card">
-        <h2>Chip Strategy – Quick Guide</h2>
-        <p class="muted">Wildcard ahead of a fixture swing; Free Hit in blanks; Triple Captain on form + doubles; Bench Boost in big doubles.</p>
-      </div>
-      <div class="card">
-        <h2>Price Change Tracker</h2>
-        <p class="muted">Avoid early transfers unless priced out. Late moves reduce risk from mid-week injuries.</p>
+        <h2 style="margin:0 0 8px;">Chip Strategy – Quick Guide</h2>
+        <p class="muted">Wildcard before fixture swings; Free Hit in blanks; Triple Captain on strong doubles; Bench Boost in big doubles.</p>
       </div>
     </section>
 
